@@ -28,7 +28,7 @@ const CreateApi = async (title, content) => {
         return addToDo;
     } catch (err) {
         console.log(err);
-        return null;
+        return false;
     }
 }
 

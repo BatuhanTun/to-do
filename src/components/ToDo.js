@@ -22,14 +22,14 @@ const ToDo = ({ todos,setShowAlertDelete,setShowAlertDeleteFailed }) => {
     };
 
     const deleteToDo = async () => {
-        try {
-            await DeleteApi(todoId);
+        const check = await DeleteApi(todoId);
+        if (check) {
             DeleteToDo(todoId);
             setShowAlertDelete(true);
-        } catch (error) {
-            console.error(error);
+        } else {
             setShowAlertDeleteFailed(true);
-        }
+            setShowAlertDelete(true);
+        }        
     };
 
     return (

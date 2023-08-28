@@ -14,10 +14,14 @@ const DeleteApi = async (todoId) => {
 
         const responseData = await response.json();
 
-        return responseData;
+        if (responseData !==true){
+            return false;
+        }
+
+        return true;
     } catch (err) {
         console.log(err);
-        return null;
+        return false;
     }
 };
 
