@@ -7,8 +7,10 @@ import Paginations from "./Peginations";
 
 const ToDoList = () => {
     const { todos } = useContext(ToDoContext);
-    const [showAlert,setShowAlert] = useState(false)
-    const [showAlertDelete,setShowAlertDelete] = useState(false)
+    const [showAlert,setShowAlert] = useState(false);
+    const [showAlertFailed,setShowAlertFailed] = useState(false);
+    const [showAlertDelete,setShowAlertDelete] = useState(false);
+    const [showAlertDeleteFailed,setShowAlertDeleteFailed] = useState(false);
     const [show, setShow] = useState(false); // modal görünümü için
     const [loading, setLoading] = useState(true); // İstek tamamlanıp tamamlanmadığını belirlemek için
     
@@ -44,11 +46,17 @@ const ToDoList = () => {
             <Alert className="mt-3" show={showAlert} variant="success" onClose={() => setShowAlert(false)} dismissible>
                 Göreviniz başarılı bir şekilde eklenmiştir.
             </Alert>
+            <Alert className="mt-3" show={showAlertFailed} variant="danger" onClose={() => setShowAlertFailed(false)} dismissible>
+                Göreviniz eklenirken bir sorun oluştu lütfen tekrar deneyiniz.
+            </Alert>
             <Alert className="mt-3" show={showAlertDelete} variant="success" onClose={() => setShowAlertDelete(false)} dismissible>
                 Göreviniz başarılı bir şekilde silinmiştir.
             </Alert>
+            <Alert className="mt-3" show={showAlertDeleteFailed} variant="danger" onClose={() => setShowAlertDeleteFailed(false)} dismissible>
+                Göreviniz silinirken bir sorun oluştu lütfen tekrar deneyiniz.
+            </Alert>
             <div className="mb-5" style={{ display: "flex", flexWrap: "wrap" }}>
-                <ToDo  todos={currentTodos} setShowAlertDelete={setShowAlertDelete}/>
+                <ToDo  todos={currentTodos} setShowAlertDelete={setShowAlertDelete} setShowAlertDeleteFailed={setShowAlertDeleteFailed}/>
             </div>
             <Paginations 
                 pages={totalPagesNum} 
@@ -63,7 +71,7 @@ const ToDoList = () => {
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <AddToDoForm setShowAlert={setShowAlert}/>
+                    <AddToDoForm setShowAlert={setShowAlert} setShowAlertFailed={setShowAlertFailed}/>
                     <Button className="ml-auto w-100 mt-2" onClick={handleCloseModal} variant="secondary">
                         Geri
                     </Button>

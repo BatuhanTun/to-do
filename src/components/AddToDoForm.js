@@ -4,7 +4,7 @@ import CreateApi from "../api/CreateApi";
 import { ToDoContext } from "../contexts/ToDoContext";
 
 
-const AddToDoForm = ({setShowAlert}) => {
+const AddToDoForm = ({setShowAlert,setShowAlertFailed}) => {
 
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
@@ -17,6 +17,7 @@ const AddToDoForm = ({setShowAlert}) => {
             setShowAlert(true);
         } catch (error) {
             console.error(error);
+            setShowAlertFailed(true);
         }
     }
     

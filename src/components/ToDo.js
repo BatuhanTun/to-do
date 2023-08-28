@@ -4,7 +4,7 @@ import { Button, Modal, Card } from "react-bootstrap";
 import DeleteApi from "../api/DeleteApi";
 import { ToDoContext } from "../contexts/ToDoContext";
 
-const ToDo = ({ todos,setShowAlertDelete }) => {
+const ToDo = ({ todos,setShowAlertDelete,setShowAlertDeleteFailed }) => {
    
     const [show, setShow] = useState(false)
     const [todoId, setTodoId] = useState("")
@@ -28,6 +28,7 @@ const ToDo = ({ todos,setShowAlertDelete }) => {
             setShowAlertDelete(true);
         } catch (error) {
             console.error(error);
+            setShowAlertDeleteFailed(true);
         }
     };
 
