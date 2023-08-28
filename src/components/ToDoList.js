@@ -41,10 +41,10 @@ const ToDoList = () => {
                 <h4><b>Yapılacaklar Listesi</b></h4>
                 <Button onClick={handleShowModal} className="btn btn-success" data-togle="modal">Yeni Görev Ekle</Button>
             </div>
-            <Alert show={showAlert} variant="success" onClose={() => setShowAlert(false)} dismissible>
+            <Alert className="mt-3" show={showAlert} variant="success" onClose={() => setShowAlert(false)} dismissible>
                 Göreviniz başarılı bir şekilde eklenmiştir.
             </Alert>
-            <Alert show={showAlertDelete} variant="success" onClose={() => setShowAlertDelete(false)} dismissible>
+            <Alert className="mt-3" show={showAlertDelete} variant="success" onClose={() => setShowAlertDelete(false)} dismissible>
                 Göreviniz başarılı bir şekilde silinmiştir.
             </Alert>
             <div className="mb-5" style={{ display: "flex", flexWrap: "wrap" }}>
@@ -64,12 +64,10 @@ const ToDoList = () => {
                 </Modal.Header>
                 <Modal.Body>
                     <AddToDoForm setShowAlert={setShowAlert}/>
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button onClick={handleCloseModal} variant="secondary">
+                    <Button className="ml-auto w-100 mt-2" onClick={handleCloseModal} variant="secondary">
                         Geri
                     </Button>
-                </Modal.Footer>
+                </Modal.Body>
             </Modal>
         </>
     )

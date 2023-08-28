@@ -7,7 +7,6 @@ const CreateApi = async (title, content) => {
         "TableName": "to_do_list",
         "Item": {
             "id": uuidv4(),
-            "user_id": "1",
             "title": title,
             "content": content,
             "created_date": currentDate

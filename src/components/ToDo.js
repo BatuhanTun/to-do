@@ -45,7 +45,6 @@ const ToDo = ({ todos,setShowAlertDelete }) => {
                         <Card.Text>{todo.content}</Card.Text>
                         <div style={{ display: "flex", justifyContent: "flex-end", marginTop: '1rem' }}>
                             <Button onClick={() => handleShowModal(todo.id)} className="btn btn-danger me-2">Sil</Button>
-                            <Button className="btn btn-success">Göster</Button>
                         </div>
                     </Card.Body>
                 </Card>

@@ -6,10 +6,6 @@ function GetToDoApi(url) {
     useEffect(() => {
         const data = {
             "TableName": "to_do_list",
-            "FilterExpression": "user_id = :value",
-            "ExpressionAttributeValues": {
-                ":value": "1"
-            }
         };
 
         fetch(url, {
