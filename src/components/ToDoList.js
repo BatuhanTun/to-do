@@ -71,7 +71,7 @@ const ToDoList = () => {
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <AddToDoForm setShowAlert={setShowAlert} setShowAlertFailed={setShowAlertFailed}/>
+                    <AddToDoForm setShowAlert={setShowAlert} setShowAlertFailed={setShowAlertFailed} setShow={setShow}/>
                     <Button className="ml-auto w-100 mt-2" onClick={handleCloseModal} variant="secondary">
                         Geri
                     </Button>

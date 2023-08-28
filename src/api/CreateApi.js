@@ -20,6 +20,9 @@ const CreateApi = async (title, content) => {
         });
 
         const responseData = await response.json();
+        if (responseData === false){
+            return false;
+        }
         const addToDo =JSON.parse(responseData.body).Item;
        
         return addToDo;

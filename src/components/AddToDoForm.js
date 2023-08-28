@@ -1,10 +1,10 @@
-import { useState,useContext } from "react";
+import { useState, useContext } from "react";
 import { Form, Button } from "react-bootstrap";
 import CreateApi from "../api/CreateApi";
 import { ToDoContext } from "../contexts/ToDoContext";
 
 
-const AddToDoForm = ({setShowAlert,setShowAlertFailed}) => {
+const AddToDoForm = ({ setShowAlert, setShowAlertFailed, setShow }) => {
 
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
@@ -12,18 +12,20 @@ const AddToDoForm = ({setShowAlert,setShowAlertFailed}) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try {
-            const addToDo = await CreateApi(title, content);
+
+        const addToDo = await CreateApi(title, content);
+
+        if (addToDo) {
             CreateToDo(addToDo);
             setShowAlert(true);
-        } catch (error) {
-            console.error(error);
+        } else {
             setShowAlertFailed(true);
+            setShow(false);
         }
     }
-    
+
     return (
-           <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit}>
             <Form.Group>
                 <Form.Control
                     className="mb-2"
